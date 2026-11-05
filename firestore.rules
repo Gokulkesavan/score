@@ -1,10 +1,12 @@
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Everyone can watch; only the scorer account can write.
+    // Anyone can read live scores; only the designated authenticated scorer can write.
     match /matches/{id} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == 'PASTE_SCORER_UID_HERE';
+      allow write: if request.auth != null
+                   && request.auth.uid == 'X9GeuM5CnhOiOdaaIudizYWZocg2';
     }
   }
 }
