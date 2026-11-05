@@ -31,7 +31,8 @@ const login = async () => {
     await signInWithEmailAndPassword(auth, email.value, password.value)
     password.value = ''
   } catch (e) {
-    err.value = 'Login failed. Check your email and password.'
+    console.error('Firebase login error:', e.code, e.message)
+    err.value = `Login failed: ${e.code || e.message}`
   }
 }
 </script>
