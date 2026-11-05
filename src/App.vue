@@ -39,6 +39,12 @@ const login = async () => {
 <template>
   <main class="container">
     <hgroup><h1>Cricket Scoring</h1><h3>Live scoreboard</h3></hgroup>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#/" :aria-current="!scorerMode ? 'page' : undefined">Public scoreboard</a></li>
+        <li><a href="#/score" :aria-current="scorerMode ? 'page' : undefined">Scorer login</a></li>
+      </ul>
+    </nav>
     <p v-if="err"><mark>{{ err }}</mark></p>
 
     <template v-if="!scorerMode">
