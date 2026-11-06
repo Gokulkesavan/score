@@ -1,42 +1,92 @@
-/*
-@import './base.css';
+/* App-wide responsive layout and touch-friendly defaults. */
+:root {
+  color-scheme: light;
+  --app-page-width: 920px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-bottom: env(safe-area-inset-bottom);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #f4f6f8;
+}
 
 #app {
-  max-width: 1280px;
+  width: 100%;
+  max-width: var(--app-page-width);
   margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+  padding: clamp(.75rem, 3vw, 1.5rem);
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+main.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+hgroup {
+  margin-bottom: 1rem;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+nav[aria-label="Main navigation"] {
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
 
+nav[aria-label="Main navigation"] ul {
+  flex-wrap: wrap;
+  gap: .35rem 1rem;
+}
+
+button, input, select, textarea, a {
+  touch-action: manipulation;
+}
+
+button {
+  min-height: 2.8rem;
+}
+
+article {
+  border-radius: .85rem;
+}
+
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+table th, table td {
+  padding: .55rem .65rem;
+}
+
+@media (max-width: 600px) {
   #app {
-    display: grid;
-    padding: 0 2rem;
+    padding: .75rem;
+  }
+
+  hgroup h1 {
+    font-size: 1.65rem;
+  }
+
+  nav[aria-label="Main navigation"] ul {
+    justify-content: space-between;
+  }
+
+  nav[aria-label="Main navigation"] a {
+    padding: .45rem .25rem;
+    font-size: .9rem;
+  }
+
+  article {
+    padding: .85rem;
   }
 }
-*/
-
-.table-outline {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
